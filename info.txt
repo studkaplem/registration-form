@@ -46,6 +46,102 @@ To relate the radio inputs, give them the same name attribute with a value of ac
    </fieldset>
 
 
+Moving on to the final fieldset. What if you wanted to allow a user to upload a profile picture?
+Well, the input type file allows just that. Add a label with the text Upload a profile picture: , and add an input accepting a file upload:
+<fieldset>
+    <label>Upload a profile picture: <input type="file" /></label>
+</fieldset>
+
+
+Add another label after the first, with the text Input your age (years): . Then, nest an input with the type of number.
+As we do not want users under the age of 13 to register, add a min attribute to the input with a value of 13. Also, we can probably assume users over the age of 120 will not register; add a max attribute with a value of 120.
+<fieldset>
+    <label>Upload a profile picture: <input type="file" /></label>
+    <label>Input your age (years): <input type="number" min="13" max="120"></label> <---
+</fieldset>
+
+
+Adding a dropdown to the form is easy with the select element. The select element is a container for a group of option elements, and the option element acts as a label for each dropdown option. Both elements require closing tags.
+Start, by adding a select element below the two label elements. Then, nest 5 option elements within the select element.
+<fieldset>
+   <label>Upload a profile picture: <input type="file" /></label>
+   <label>Input your age (years): <input type="number" min="13" max="120"/> </label>
+   <select>
+     <option></option>
+     <option></option>       
+     <option></option>       
+     <option></option>       
+     <option></option>       
+   </select>
+</fieldset>
+
+The dropdown options are currently empty. To give them content, add the following text to each subsequent option element:
+<fieldset>
+   <label>Upload a profile picture: <input type="file" /></label>
+   <label>Input your age (years): <input type="number" min="13" max="120" /> </label>
+   <label>How did you hear about us?
+     <select>
+            <option>(select one)</option>
+            <option>freeCodeCamp News</option>
+            <option>freeCodeCamp YouTube Channel</option>
+            <option>freeCodeCamp Forum</option>
+            <option>Other</option>
+     </select>
+    </label>
+</fieldset>
+
+
+Submitting the form with an option selected would not send a useful value to the server. As such, each option needs to be given a value attribute. Without which, the text content of the option will be submitted to the server.
+Give the first option a value of "", and the subsequent option elements value attributes from 1 to 4.
+<fieldset>
+   <label>Upload a profile picture: <input type="file" /></label>
+   <label>Input your age (years): <input type="number" min="13" max="120" /> </label>
+        <label>How did you hear about us?
+          <select>
+            <option value="">(select one)</option>
+            <option value="1">freeCodeCamp News</option>
+            <option value="2">freeCodeCamp YouTube Channel</option>
+            <option value="3">freeCodeCamp Forum</option>
+            <option value="4">Other</option>
+          </select>
+        </label>
+</fieldset>
+
+
+The textarea element acts like an input element of type text, but comes with the added benefit of being able to receive multi-line text, and an initial number of text rows and columns
+Users will be able to register with a bio. Add a label with the text Provide a bio: at the end of the fieldset. Add a textarea element inside the label element. Note that the textarea requires a closing tag
+      <fieldset>
+        <label>Upload a profile picture: <input type="file" /></label>
+        <label>Input your age (years): <input type="number" min="13" max="120" />
+			  </label>
+        <label>How did you hear about us?
+          <select>
+            <option value="">(select one)</option>
+            <option value="1">freeCodeCamp News</option>
+            <option value="2">freeCodeCamp YouTube Channel</option>
+            <option value="3">freeCodeCamp Forum</option>
+            <option value="4">Other</option>
+          </select>
+        </label>
+        <label> Provide a bio: <--
+        <textarea></textarea>  <--
+        </label>               <--
+      </fieldset>
+
+
+The textarea appears too small. To give it an initial size, you can add the rows and cols attributes:
+<label>Provide a bio:
+   <textarea rows="3" cols="30"></textarea> <----
+</label>
+
+To give Campers an idea of what to put in their bio, the placeholder attribute is used. The placeholder accepts a text value, which is displayed until the user starts typing:
+<label>Provide a bio:
+    <textarea rows="3" cols="30" placeholder="I like coding on the beach..."></textarea>
+</label>
+
+
+
+
 CSS propterties with values:
 - width: 100%;
 - height: 100vh;
